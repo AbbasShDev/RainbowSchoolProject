@@ -1,2 +1,4 @@
-1,John Doe,Math(Sec01)-Math(Sec02)
-2,Jane Doe,Physics(Sec01)-Physics(Sec02)
+1,John Doe,Math(01)-Math(02)
+2,Jane Doe,Math(01)-Math(02)
+3,Adam Smith,Chemistry(01)-Chemistry(02)
+4,Maria Smith,Physics(01)-Physics(02)
