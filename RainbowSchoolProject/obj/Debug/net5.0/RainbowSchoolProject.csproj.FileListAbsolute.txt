@@ -1,0 +1,15 @@
+/Users/abbasalshaqaq/code/simplilearn/RainbowSchoolProject/RainbowSchoolProject/bin/Debug/net5.0/RainbowSchoolProject.deps.json
+/Users/abbasalshaqaq/code/simplilearn/RainbowSchoolProject/RainbowSchoolProject/bin/Debug/net5.0/RainbowSchoolProject.runtimeconfig.json
+/Users/abbasalshaqaq/code/simplilearn/RainbowSchoolProject/RainbowSchoolProject/bin/Debug/net5.0/RainbowSchoolProject.runtimeconfig.dev.json
+/Users/abbasalshaqaq/code/simplilearn/RainbowSchoolProject/RainbowSchoolProject/bin/Debug/net5.0/RainbowSchoolProject.dll
+/Users/abbasalshaqaq/code/simplilearn/RainbowSchoolProject/RainbowSchoolProject/bin/Debug/net5.0/ref/RainbowSchoolProject.dll
+/Users/abbasalshaqaq/code/simplilearn/RainbowSchoolProject/RainbowSchoolProject/bin/Debug/net5.0/RainbowSchoolProject.pdb
+/Users/abbasalshaqaq/code/simplilearn/RainbowSchoolProject/RainbowSchoolProject/obj/Debug/net5.0/RainbowSchoolProject.csprojAssemblyReference.cache
+/Users/abbasalshaqaq/code/simplilearn/RainbowSchoolProject/RainbowSchoolProject/obj/Debug/net5.0/RainbowSchoolProject.GeneratedMSBuildEditorConfig.editorconfig
+/Users/abbasalshaqaq/code/simplilearn/RainbowSchoolProject/RainbowSchoolProject/obj/Debug/net5.0/RainbowSchoolProject.AssemblyInfoInputs.cache
+/Users/abbasalshaqaq/code/simplilearn/RainbowSchoolProject/RainbowSchoolProject/obj/Debug/net5.0/RainbowSchoolProject.AssemblyInfo.cs
+/Users/abbasalshaqaq/code/simplilearn/RainbowSchoolProject/RainbowSchoolProject/obj/Debug/net5.0/RainbowSchoolProject.csproj.CoreCompileInputs.cache
+/Users/abbasalshaqaq/code/simplilearn/RainbowSchoolProject/RainbowSchoolProject/obj/Debug/net5.0/RainbowSchoolProject.dll
+/Users/abbasalshaqaq/code/simplilearn/RainbowSchoolProject/RainbowSchoolProject/obj/Debug/net5.0/ref/RainbowSchoolProject.dll
+/Users/abbasalshaqaq/code/simplilearn/RainbowSchoolProject/RainbowSchoolProject/obj/Debug/net5.0/RainbowSchoolProject.pdb
+/Users/abbasalshaqaq/code/simplilearn/RainbowSchoolProject/RainbowSchoolProject/obj/Debug/net5.0/RainbowSchoolProject.genruntimeconfig.cache
