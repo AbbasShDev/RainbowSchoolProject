@@ -8,7 +8,6 @@ namespace RainbowSchoolProject
     class Program
     {
 
-
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome To Rainbow School Teacher System");
@@ -27,10 +26,8 @@ namespace RainbowSchoolProject
             //read the text file lines and convert id to a list
             List<String> FileLines = File.ReadAllLines(fileName).ToList();
 
-            //get the data form the text file
+            //get the data form the text file and store it in Teacher List
             RetrieveData(FileLines, teachers);
-
-            Console.WriteLine(FindTeacherById(100, teachers));
 
             Console.WriteLine("Enter 1 to display all teachers.");
             Console.WriteLine("Enter 2 to add new teacher.");
@@ -77,6 +74,7 @@ namespace RainbowSchoolProject
             }
         }
 
+        //Display the teachers' data to the console
         static void DisplayData(List<Teacher> teachers)
         {
 
@@ -93,6 +91,7 @@ namespace RainbowSchoolProject
             }
         }
 
+        //Add new teacher's data
         static void AddnewTeacher(List<Teacher> teachers)
         {
             Teacher newTeacher = new Teacher();
@@ -130,6 +129,7 @@ namespace RainbowSchoolProject
 
         }
 
+        //Store the teachers' data to the text file
         static void StoreData(string fileName, List<Teacher> teachers)
         {
 
@@ -147,12 +147,14 @@ namespace RainbowSchoolProject
 
         }
 
+        //Update teacher's data (Ask the user which data to update)
         static void UpdateTeacher(List<Teacher> teachers)
         {
             Console.WriteLine("Enter the id of the teacher");
 
             int enteredTeacherId = Convert.ToInt32(Console.ReadLine());
 
+            //Check if entered teacher id is exists
             if (! teachers.Exists(x => x.ID == enteredTeacherId))
             {
                 Console.WriteLine("The id is not vaild");
@@ -179,6 +181,7 @@ namespace RainbowSchoolProject
 
         }
 
+        //Update teacher's data (update the the name)
         static void UpdateTeacherName(Teacher teacherToUodate)
         {
             string oldTeacherName = teacherToUodate.Name;
@@ -193,7 +196,8 @@ namespace RainbowSchoolProject
 
         }
 
-        private static void UpdateTeacherClassesAndSections(Teacher teacherToUodate)
+        //Update teacher's data (update the classes and sections)
+        static void UpdateTeacherClassesAndSections(Teacher teacherToUodate)
         {
             string oldClassSec = teacherToUodate.JoinClassesAndSections();
 
@@ -223,14 +227,9 @@ namespace RainbowSchoolProject
             Console.WriteLine($"Old classes: {oldClassSec}, New classes: {newClassSec}");
         }
 
+        //Find the teacher data by the given Id and return it
         static Teacher FindTeacherById(int teacherID, List<Teacher> teachers)
         {
-
-            if (! teachers.Exists(x => x.ID == teacherID))
-            {
-                return null;
-            }
-
             return teachers.Find(x => x.ID == teacherID);
         }
     }
