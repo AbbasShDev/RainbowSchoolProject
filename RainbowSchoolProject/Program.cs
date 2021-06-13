@@ -30,8 +30,11 @@ namespace RainbowSchoolProject
             //get the data form the text file
             RetrieveData(FileLines, teachers);
 
+            Console.WriteLine(FindTeacherById(100, teachers));
+
             Console.WriteLine("Enter 1 to display all teachers.");
             Console.WriteLine("Enter 2 to add new teacher.");
+            Console.WriteLine("Enter 3 to update a teacher data.");
 
             string choise = Console.ReadLine();
             switch (choise)
@@ -43,6 +46,11 @@ namespace RainbowSchoolProject
                     AddnewTeacher(teachers);
                     StoreData(fileName, teachers);
                     DisplayData(teachers);
+                    break;
+                case "3":
+                    DisplayData(teachers);
+                    UpdateTeacher(teachers);
+                    StoreData(fileName, teachers);
                     break;
                 default:
                     break;
@@ -137,6 +145,93 @@ namespace RainbowSchoolProject
 
             File.WriteAllLines(fileName, output);
 
+        }
+
+        static void UpdateTeacher(List<Teacher> teachers)
+        {
+            Console.WriteLine("Enter the id of the teacher");
+
+            int enteredTeacherId = Convert.ToInt32(Console.ReadLine());
+
+            if (! teachers.Exists(x => x.ID == enteredTeacherId))
+            {
+                Console.WriteLine("The id is not vaild");
+            }
+
+            Teacher teacherToUodate = FindTeacherById(enteredTeacherId, teachers);
+
+            Console.WriteLine("Enter 1 to update teacher's name.");
+            Console.WriteLine("Enter 2 to update teacher's classes and sections.(this will remove all old classes and sections)");
+
+            string choise = Console.ReadLine();
+            switch (choise)
+            {
+                case "1":
+                    UpdateTeacherName(teacherToUodate);
+                    break;
+                case "2":
+                    UpdateTeacherClassesAndSections(teacherToUodate);
+                    break;
+                default:
+                    break;
+            }
+
+
+        }
+
+        static void UpdateTeacherName(Teacher teacherToUodate)
+        {
+            string oldTeacherName = teacherToUodate.Name;
+
+            Console.WriteLine("Enetr the new name");
+            string newTeacherName = Console.ReadLine();
+
+            teacherToUodate.Name = newTeacherName;
+
+            Console.WriteLine("Teacher name updated successfully.");
+            Console.WriteLine($"Old name: {oldTeacherName}, New name: {newTeacherName}");
+
+        }
+
+        private static void UpdateTeacherClassesAndSections(Teacher teacherToUodate)
+        {
+            string oldClassSec = teacherToUodate.JoinClassesAndSections();
+
+            Console.WriteLine("Enter how many class and section to add: ");
+            int numOfClassSec = Convert.ToInt32(Console.ReadLine());
+
+            string[] newClassSecArray = new string[numOfClassSec];
+
+            for (int i = 0; i < numOfClassSec; i++)
+            {
+                Console.WriteLine($"Enter the name of class#{i + 1}: ");
+
+                string className = Console.ReadLine();
+
+                Console.WriteLine($"Enter the section number of class#{i + 1}: ");
+
+                string sectionNum = Console.ReadLine();
+
+                newClassSecArray[i] = $"{className}({sectionNum})";
+            }
+
+            teacherToUodate.ClassesAndSections = newClassSecArray;
+
+            string newClassSec = teacherToUodate.JoinClassesAndSections();
+
+            Console.WriteLine("Teacher classes and sections updated successfully.");
+            Console.WriteLine($"Old classes: {oldClassSec}, New classes: {newClassSec}");
+        }
+
+        static Teacher FindTeacherById(int teacherID, List<Teacher> teachers)
+        {
+
+            if (! teachers.Exists(x => x.ID == teacherID))
+            {
+                return null;
+            }
+
+            return teachers.Find(x => x.ID == teacherID);
         }
     }
 }
