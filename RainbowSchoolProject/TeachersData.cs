@@ -132,9 +132,11 @@ namespace RainbowSchoolProject
             int enteredTeacherId = Convert.ToInt32(Console.ReadLine());
 
             //Check if entered teacher id is exists
-            if (!_teachers.Exists(x => x.ID == enteredTeacherId))
+            while (!_teachers.Exists(x => x.ID == enteredTeacherId))
             {
-                Console.WriteLine("The id is not vaild");
+                Console.WriteLine("The id is not vaild, enter another teacher id");
+
+                enteredTeacherId = Convert.ToInt32(Console.ReadLine());
             }
 
             Teacher teacherToUodate = FindTeacherById(enteredTeacherId);

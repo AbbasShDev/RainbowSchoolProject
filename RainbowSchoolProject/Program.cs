@@ -49,6 +49,9 @@ namespace RainbowSchoolProject
                 }
 
                 Console.WriteLine("Select another option or x to exit:");
+                Console.WriteLine(" 1 to display all teachers.");
+                Console.WriteLine(" 2 to add new teacher.");
+                Console.WriteLine(" 3 to update a teacher data.");
                 choise = Console.ReadLine();
             }
             
