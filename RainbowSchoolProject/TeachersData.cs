@@ -66,6 +66,16 @@ namespace RainbowSchoolProject
 
         }
 
+        //Print colored message to the console
+        private void ConsoleColorMessage(ConsoleColor color, string message)
+        {
+            Console.ForegroundColor = color;
+
+            Console.WriteLine(message);
+
+            Console.ResetColor();
+        }
+
         //Display the teachers' data to the console
         public void DisplayAllTeachers()
         {
@@ -90,23 +100,23 @@ namespace RainbowSchoolProject
 
             newTeacher.ID = _teachers.Count + 1;
 
-            Console.WriteLine("Enter the name of the teacher: ");
+            ConsoleColorMessage(ConsoleColor.Blue,"Enter the name of the teacher: ");
 
             newTeacher.Name = Console.ReadLine();
 
+            ConsoleColorMessage(ConsoleColor.Blue, "Enter how many class and section to add: ");
 
-            Console.WriteLine("Enter how many class and section to add: ");
             int numOfClassSec = Convert.ToInt32(Console.ReadLine());
 
             string[] newClassSec = new string[numOfClassSec];
 
             for (int i = 0; i < numOfClassSec; i++)
             {
-                Console.WriteLine($"Enter the name of class#{i + 1}: ");
+                ConsoleColorMessage(ConsoleColor.Blue, $"Enter the name of class#{i + 1}: ");
 
                 string className = Console.ReadLine();
 
-                Console.WriteLine($"Enter the section number of class#{i + 1}: ");
+                ConsoleColorMessage(ConsoleColor.Blue, $"Enter the section number of class#{i + 1}: ");
 
                 string sectionNum = Console.ReadLine();
 
@@ -117,7 +127,7 @@ namespace RainbowSchoolProject
 
             _teachers.Add(newTeacher);
 
-            Console.WriteLine("New teacher added successfully");
+            ConsoleColorMessage(ConsoleColor.Green, "New teacher added successfully");
 
             //Store the data after adding new teacher
             StoreData();
@@ -127,22 +137,23 @@ namespace RainbowSchoolProject
         //Update teacher's data (Ask the user which data to update)
         public void UpdateTeacher()
         {
-            Console.WriteLine("Enter the id of the teacher");
+            ConsoleColorMessage(ConsoleColor.Blue, "Enter the id of the teacher");
 
             int enteredTeacherId = Convert.ToInt32(Console.ReadLine());
 
             //Check if entered teacher id is exists
             while (!_teachers.Exists(x => x.ID == enteredTeacherId))
             {
-                Console.WriteLine("The id is not vaild, enter another teacher id");
+                ConsoleColorMessage(ConsoleColor.Red, "The id is not vaild.");
+                ConsoleColorMessage(ConsoleColor.Blue, "Enter another teacher id");
 
                 enteredTeacherId = Convert.ToInt32(Console.ReadLine());
             }
 
             Teacher teacherToUodate = FindTeacherById(enteredTeacherId);
 
-            Console.WriteLine("Enter 1 to update teacher's name.");
-            Console.WriteLine("Enter 2 to update teacher's classes and sections.(this will remove all old classes and sections)");
+            ConsoleColorMessage(ConsoleColor.Blue, "Enter 1 to update teacher's name.");
+            ConsoleColorMessage(ConsoleColor.Blue, "Enter 2 to update teacher's classes and sections.(this will remove all old classes and sections)");
 
             string choise = Console.ReadLine();
             switch (choise)
@@ -166,13 +177,13 @@ namespace RainbowSchoolProject
         {
             string oldTeacherName = teacherToUodate.Name;
 
-            Console.WriteLine("Enetr the new name");
+            ConsoleColorMessage(ConsoleColor.Blue, "Enetr the new name");
             string newTeacherName = Console.ReadLine();
 
             teacherToUodate.Name = newTeacherName;
 
-            Console.WriteLine("Teacher name updated successfully.");
-            Console.WriteLine($"Old name: {oldTeacherName}, New name: {newTeacherName}");
+            ConsoleColorMessage(ConsoleColor.Green, "Teacher name updated successfully.");
+            ConsoleColorMessage(ConsoleColor.Green, $"Old name: {oldTeacherName}, New name: {newTeacherName}");
 
         }
 
@@ -181,18 +192,18 @@ namespace RainbowSchoolProject
         {
             string oldClassSec = teacherToUodate.JoinClassesAndSections();
 
-            Console.WriteLine("Enter how many class and section to add: ");
+            ConsoleColorMessage(ConsoleColor.Blue, "Enter how many class and section to add: ");
             int numOfClassSec = Convert.ToInt32(Console.ReadLine());
 
             string[] newClassSecArray = new string[numOfClassSec];
 
             for (int i = 0; i < numOfClassSec; i++)
             {
-                Console.WriteLine($"Enter the name of class#{i + 1}: ");
+                ConsoleColorMessage(ConsoleColor.Blue, $"Enter the name of class#{i + 1}: ");
 
                 string className = Console.ReadLine();
 
-                Console.WriteLine($"Enter the section number of class#{i + 1}: ");
+                ConsoleColorMessage(ConsoleColor.Blue, $"Enter the section number of class#{i + 1}: ");
 
                 string sectionNum = Console.ReadLine();
 
@@ -203,8 +214,8 @@ namespace RainbowSchoolProject
 
             string newClassSec = teacherToUodate.JoinClassesAndSections();
 
-            Console.WriteLine("Teacher classes and sections updated successfully.");
-            Console.WriteLine($"Old classes: {oldClassSec}, New classes: {newClassSec}");
+            ConsoleColorMessage(ConsoleColor.Green, "Teacher classes and sections updated successfully.");
+            ConsoleColorMessage(ConsoleColor.Green, $"Old classes: {oldClassSec}, New classes: {newClassSec}");
         }
 
         //Find the teacher data by the given Id and return it
