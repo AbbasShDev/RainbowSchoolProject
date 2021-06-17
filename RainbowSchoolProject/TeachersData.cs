@@ -138,8 +138,10 @@ namespace RainbowSchoolProject
         public void UpdateTeacher()
         {
             ConsoleColorMessage(ConsoleColor.Blue, "Enter the id of the teacher");
+            string teacherIdString = Console.ReadLine();
+            int enteredTeacherId;
 
-            int enteredTeacherId = Convert.ToInt32(Console.ReadLine());
+            Int32.TryParse(teacherIdString, out enteredTeacherId);
 
             //Check if entered teacher id is exists
             while (!_teachers.Exists(x => x.ID == enteredTeacherId))
@@ -147,7 +149,8 @@ namespace RainbowSchoolProject
                 ConsoleColorMessage(ConsoleColor.Red, "The id is not vaild.");
                 ConsoleColorMessage(ConsoleColor.Blue, "Enter another teacher id");
 
-                enteredTeacherId = Convert.ToInt32(Console.ReadLine());
+                teacherIdString = Console.ReadLine();
+                Int32.TryParse(teacherIdString, out enteredTeacherId);
             }
 
             Teacher teacherToUodate = FindTeacherById(enteredTeacherId);
@@ -156,6 +159,28 @@ namespace RainbowSchoolProject
             ConsoleColorMessage(ConsoleColor.Blue, "Enter 2 to update teacher's classes and sections.(this will remove all old classes and sections)");
 
             string choise = Console.ReadLine();
+
+            bool rightChoise = true;
+            while (rightChoise)
+            {
+                if (choise == "1" || choise == "2")
+                {
+                    rightChoise = false;
+
+                }
+                else
+                {
+                    ConsoleColorMessage(ConsoleColor.Red, "Invalid option, select a vaild option:");
+                    ConsoleColorMessage(ConsoleColor.Blue, "Enter 1 to update teacher's name.");
+                    ConsoleColorMessage(ConsoleColor.Blue, "Enter 2 to update teacher's classes and sections.(this will remove all old classes and sections)");
+                    choise = Console.ReadLine();
+                    rightChoise = true;
+                    
+                }
+                
+
+            }
+
             switch (choise)
             {
                 case "1":
@@ -166,7 +191,7 @@ namespace RainbowSchoolProject
                     break;
                 default:
                     break;
-            }
+            } 
 
             //Store the data after updating data
             StoreData();

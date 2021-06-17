@@ -1,16 +1,16 @@
 ﻿<Properties StartupConfiguration="{15FBEE96-7100-4AC8-AF6A-1D6460578332}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="RainbowSchoolProject/TeachersData.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RainbowSchoolProject/Program.cs">
     <Files>
-      <File FileName="RainbowSchoolProject/Program.cs" Line="54" Column="37" />
-      <File FileName="RainbowSchoolProject/Teacher.cs" Line="9" Column="1" />
-      <File FileName="RainbowSchoolProject/TeachersData.cs" Line="1" Column="1" />
+      <File FileName="RainbowSchoolProject/Program.cs" Line="49" Column="87" />
+      <File FileName="RainbowSchoolProject/Teacher.cs" />
+      <File FileName="RainbowSchoolProject/TeachersData.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RainbowSchoolProject" expanded="True">
             <Node name="RainbowSchoolProject" expanded="True">
-              <Node name="TeachersData.cs" selected="True" />
+              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
